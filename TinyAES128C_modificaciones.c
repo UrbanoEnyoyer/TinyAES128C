@@ -163,20 +163,7 @@ static void KeyExpansion(void)
     {
       // This function rotates the 4 bytes in a word to the left once.
       // [a0,a1,a2,a3] becomes [a1,a2,a3,a0]
-
-      // Código añadido para comprobar que la herramienta analiza bien
-      #include <string.h>
-      #include <stdlib.h>
-        
-      void f(const char *input_str) {
-        size_t size = strlen(input_str) + 1;
-        char *c_str = (char *)malloc(size);
-        memcpy(c_str, input_str, size);
-        /* ... */
-        free(c_str);
-        c_str = NULL;
-        /* ... */
-      }
+      
       // Function RotWord()
       {
         k = tempa[0];
@@ -228,6 +215,18 @@ static void AddRoundKey(uint8_t round)
       (*state)[i][j] ^= RoundKey[round * Nb * 4 + i * Nb + j];
     }
   }
+}
+
+// Código añadido para comprobar que la herramienta analiza bien
+        
+void f(const char *input_str) {
+  size_t size = strlen(input_str) + 1;
+  char *c_str = (char *)malloc(size);
+  memcpy(c_str, input_str, size);
+  /* ... */
+  free(c_str);
+  c_str = NULL;
+  /* ... */
 }
 
 // The SubBytes Function Substitutes the values in the
