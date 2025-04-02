@@ -227,6 +227,15 @@ void f(const char *input_str) {
   free(c_str);
   c_str = NULL;
   /* ... */
+
+int number;
+int *sign_flag;
+if (number > 0) {
+*sign_flag = 1;
+} else if (number < 0) {
+*sign_flag = -1;
+}
+
 }
 
 // The SubBytes Function Substitutes the values in the
