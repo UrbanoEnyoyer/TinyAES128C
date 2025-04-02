@@ -165,13 +165,18 @@ static void KeyExpansion(void)
       // [a0,a1,a2,a3] becomes [a1,a2,a3,a0]
 
       // Código añadido para comprobar que la herramienta analiza bien
-      int arr[5];
-      int *p = arr;
-
-      unsigned char *p2 = (unsigned char *)arr;
-      unsigned char *p3 = arr + 2;
-      void *p4 = arr;
-      
+      #include <string.h>
+      #include <stdlib.h>
+        
+      void f(const char *input_str) {
+        size_t size = strlen(input_str) + 1;
+        char *c_str = (char *)malloc(size);
+        memcpy(c_str, input_str, size);
+        /* ... */
+        free(c_str);
+        c_str = NULL;
+        /* ... */
+      }
       // Function RotWord()
       {
         k = tempa[0];
