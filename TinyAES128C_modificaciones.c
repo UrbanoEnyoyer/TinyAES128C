@@ -228,14 +228,28 @@ void f(const char *input_str) {
   c_str = NULL;
   /* ... */
 
-int number;
-int *sign_flag;
-if (number > 0) {
-*sign_flag = 1;
-} else if (number < 0) {
-*sign_flag = -1;
+  int number;
+  int *sign_flag;
+  if (number > 0) {
+  *sign_flag = 1;
+  } else if (number < 0) {
+  *sign_flag = -1;
+  }
 }
 
+int prueba(int argc, char *argv[]) {
+  char *return_val = 0;
+  const size_t bufsize = strlen(argv[0]) + 1;
+  char *buf = (char *)malloc(bufsize);
+  if (!buf) {
+    return EXIT_FAILURE;
+  }
+  /* ... */
+  free(buf);
+  /* ... */
+  strcpy(buf, argv[0]);
+  /* ... */
+  return EXIT_SUCCESS;
 }
 
 // The SubBytes Function Substitutes the values in the
